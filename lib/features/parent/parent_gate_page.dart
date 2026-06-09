@@ -144,7 +144,7 @@ class _ParentGatePageState extends ConsumerState<ParentGatePage> {
                   ElevatedButton(
                     onPressed: _checkMath,
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.mathPrimary),
+                        backgroundColor: const Color(0xFFFF8A3D)),
                     child: const Text('下一步',
                         style: TextStyle(color: Colors.white)),
                   ),
@@ -190,7 +190,7 @@ class _ParentGatePageState extends ConsumerState<ParentGatePage> {
                   ElevatedButton(
                     onPressed: _checkPin,
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.spacePrimary),
+                        backgroundColor: const Color(0xFF5B6CE0)),
                     child: Text(settingPin ? '设置并进入' : '进入',
                         style: const TextStyle(color: Colors.white)),
                   ),
