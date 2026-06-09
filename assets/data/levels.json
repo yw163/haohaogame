@@ -1,0 +1,270 @@
+[
+  {
+    "id": "L01", "index": 1, "theme": "math", "title": "两位数加法", "emoji": "➕", "isBoss": false, "skillId": "s01",
+    "questions": [
+      { "id": "L01q1", "type": "singleChoice", "prompt": "23 + 15 = ?", "ttsText": "二十三 加 十五 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"37"}, {"id":"b","label":"38"}, {"id":"c","label":"48"} ], "correctIds": ["b"] },
+      { "id": "L01q2", "type": "singleChoice", "prompt": "42 + 36 = ?", "ttsText": "四十二 加 三十六 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"78"}, {"id":"b","label":"68"}, {"id":"c","label":"79"} ], "correctIds": ["a"] },
+      { "id": "L01q3", "type": "numberInput", "prompt": "50 + 27 = ?", "ttsText": "五十 加 二十七 等于几？用数字键盘输入吧！", "emoji": "",
+        "options": [], "correctIds": ["77"] }
+    ]
+  },
+  {
+    "id": "L02", "index": 2, "theme": "math", "title": "两位数减法", "emoji": "➖", "isBoss": false, "skillId": "s02",
+    "questions": [
+      { "id": "L02q1", "type": "singleChoice", "prompt": "38 - 12 = ?", "ttsText": "三十八 减 十二 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"24"}, {"id":"b","label":"26"}, {"id":"c","label":"36"} ], "correctIds": ["b"] },
+      { "id": "L02q2", "type": "singleChoice", "prompt": "67 - 25 = ?", "ttsText": "六十七 减 二十五 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"42"}, {"id":"b","label":"32"}, {"id":"c","label":"52"} ], "correctIds": ["a"] },
+      { "id": "L02q3", "type": "numberInput", "prompt": "89 - 40 = ?", "ttsText": "八十九 减 四十 等于几？", "emoji": "",
+        "options": [], "correctIds": ["49"] }
+    ]
+  },
+  {
+    "id": "L03", "index": 3, "theme": "math", "title": "进位加法", "emoji": "🔼", "isBoss": false, "skillId": "s03",
+    "questions": [
+      { "id": "L03q1", "type": "singleChoice", "prompt": "27 + 18 = ?", "ttsText": "二十七 加 十八 等于几？满十要进位哦。", "emoji": "",
+        "options": [ {"id":"a","label":"35"}, {"id":"b","label":"45"}, {"id":"c","label":"44"} ], "correctIds": ["b"] },
+      { "id": "L03q2", "type": "singleChoice", "prompt": "36 + 29 = ?", "ttsText": "三十六 加 二十九 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"65"}, {"id":"b","label":"55"}, {"id":"c","label":"66"} ], "correctIds": ["a"] },
+      { "id": "L03q3", "type": "numberInput", "prompt": "48 + 25 = ?", "ttsText": "四十八 加 二十五 等于几？", "emoji": "",
+        "options": [], "correctIds": ["73"] }
+    ]
+  },
+  {
+    "id": "L04", "index": 4, "theme": "math", "title": "退位减法", "emoji": "🔽", "isBoss": false, "skillId": "s04",
+    "questions": [
+      { "id": "L04q1", "type": "singleChoice", "prompt": "52 - 27 = ?", "ttsText": "五十二 减 二十七 等于几？不够减要退位哦。", "emoji": "",
+        "options": [ {"id":"a","label":"35"}, {"id":"b","label":"25"}, {"id":"c","label":"15"} ], "correctIds": ["b"] },
+      { "id": "L04q2", "type": "singleChoice", "prompt": "63 - 48 = ?", "ttsText": "六十三 减 四十八 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"25"}, {"id":"b","label":"15"}, {"id":"c","label":"21"} ], "correctIds": ["b"] },
+      { "id": "L04q3", "type": "numberInput", "prompt": "70 - 36 = ?", "ttsText": "七十 减 三十六 等于几？", "emoji": "",
+        "options": [], "correctIds": ["34"] }
+    ]
+  },
+  {
+    "id": "L05", "index": 5, "theme": "math", "title": "乘法口诀", "emoji": "✖️", "isBoss": false, "skillId": "s05",
+    "questions": [
+      { "id": "L05q1", "type": "singleChoice", "prompt": "3 × 4 = ?", "ttsText": "三 乘 四 等于几？想想口诀：三四十二。", "emoji": "",
+        "options": [ {"id":"a","label":"12"}, {"id":"b","label":"7"}, {"id":"c","label":"14"} ], "correctIds": ["a"] },
+      { "id": "L05q2", "type": "singleChoice", "prompt": "6 × 7 = ?", "ttsText": "六 乘 七 等于几？六七四十二。", "emoji": "",
+        "options": [ {"id":"a","label":"42"}, {"id":"b","label":"36"}, {"id":"c","label":"48"} ], "correctIds": ["a"] },
+      { "id": "L05q3", "type": "numberInput", "prompt": "8 × 8 = ?", "ttsText": "八 乘 八 等于几？", "emoji": "",
+        "options": [], "correctIds": ["64"] }
+    ]
+  },
+  {
+    "id": "L06", "index": 6, "theme": "math", "title": "除法与平分", "emoji": "➗", "isBoss": false, "skillId": "s06",
+    "questions": [
+      { "id": "L06q1", "type": "singleChoice", "prompt": "12 个苹果分给 3 个小朋友，每人几个？", "ttsText": "十二个苹果，平均分给三个小朋友，每人能分到几个？", "emoji": "🍎",
+        "options": [ {"id":"a","label":"3"}, {"id":"b","label":"4"}, {"id":"c","label":"5"} ], "correctIds": ["b"] },
+      { "id": "L06q2", "type": "singleChoice", "prompt": "15 ÷ 5 = ?", "ttsText": "十五 除以 五 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"3"}, {"id":"b","label":"5"}, {"id":"c","label":"10"} ], "correctIds": ["a"] },
+      { "id": "L06q3", "type": "numberInput", "prompt": "24 ÷ 4 = ?", "ttsText": "二十四 除以 四 等于几？", "emoji": "",
+        "options": [], "correctIds": ["6"] }
+    ]
+  },
+  {
+    "id": "L07", "index": 7, "theme": "math", "title": "认识图形", "emoji": "🔷", "isBoss": false, "skillId": "s07",
+    "questions": [
+      { "id": "L07q1", "type": "singleChoice", "prompt": "长方形有几条边？", "ttsText": "一个长方形，一共有几条边？", "emoji": "▭",
+        "options": [ {"id":"a","label":"3"}, {"id":"b","label":"4"}, {"id":"c","label":"5"} ], "correctIds": ["b"] },
+      { "id": "L07q2", "type": "multiChoice", "prompt": "把所有四条边的图形找出来", "ttsText": "把所有有四条边的图形，都点出来。", "emoji": "",
+        "options": [ {"id":"a","emoji":"⬜","label":"正方形"}, {"id":"b","emoji":"🔺","label":"三角形"}, {"id":"c","emoji":"▭","label":"长方形"}, {"id":"d","emoji":"⭕","label":"圆形"} ], "correctIds": ["a","c"] },
+      { "id": "L07q3", "type": "singleChoice", "prompt": "钟面上时针走一圈是直角的几倍？哪个是直角？", "ttsText": "下面哪一个角，是直直方方的直角？", "emoji": "",
+        "options": [ {"id":"a","emoji":"📐","label":"直角"}, {"id":"b","emoji":"📏","label":"很尖的角"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L08", "index": 8, "theme": "math", "title": "长度单位", "emoji": "📏", "isBoss": false, "skillId": "s08",
+    "questions": [
+      { "id": "L08q1", "type": "singleChoice", "prompt": "1 米等于多少厘米？", "ttsText": "一米，等于多少厘米？", "emoji": "📏",
+        "options": [ {"id":"a","label":"10"}, {"id":"b","label":"100"}, {"id":"c","label":"1000"} ], "correctIds": ["b"] },
+      { "id": "L08q2", "type": "singleChoice", "prompt": "量铅笔的长度，用哪个单位合适？", "ttsText": "量一支铅笔有多长，用哪个单位更合适？", "emoji": "✏️",
+        "options": [ {"id":"a","label":"厘米"}, {"id":"b","label":"米"}, {"id":"c","label":"千米"} ], "correctIds": ["a"] },
+      { "id": "L08q3", "type": "singleChoice", "prompt": "哪个更长？", "ttsText": "三米 和 二百厘米，哪个更长？", "emoji": "",
+        "options": [ {"id":"a","label":"3米"}, {"id":"b","label":"200厘米"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L09", "index": 9, "theme": "math", "title": "认识时间", "emoji": "🕐", "isBoss": false, "skillId": "s09",
+    "questions": [
+      { "id": "L09q1", "type": "singleChoice", "prompt": "1 小时等于多少分钟？", "ttsText": "一个小时，等于多少分钟？", "emoji": "🕐",
+        "options": [ {"id":"a","label":"30"}, {"id":"b","label":"60"}, {"id":"c","label":"100"} ], "correctIds": ["b"] },
+      { "id": "L09q2", "type": "singleChoice", "prompt": "分针指到 6，是几分？", "ttsText": "钟面上，分针指到数字六，是多少分？", "emoji": "🕡",
+        "options": [ {"id":"a","label":"6分"}, {"id":"b","label":"30分"}, {"id":"c","label":"60分"} ], "correctIds": ["b"] },
+      { "id": "L09q3", "type": "singleChoice", "prompt": "现在是几点几分？", "ttsText": "看看钟，现在大约是几点？", "emoji": "🕦",
+        "options": [ {"id":"a","label":"11点半"}, {"id":"b","label":"12点"}, {"id":"c","label":"6点"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L10", "index": 10, "theme": "math", "title": "解决问题", "emoji": "🧠", "isBoss": false, "skillId": "s10",
+    "questions": [
+      { "id": "L10q1", "type": "singleChoice", "prompt": "皓皓有 25 元，买书花了 18 元，还剩多少？", "ttsText": "皓皓有二十五元钱，买书花了十八元，还剩下多少钱？", "emoji": "📖",
+        "options": [ {"id":"a","label":"7元"}, {"id":"b","label":"8元"}, {"id":"c","label":"17元"} ], "correctIds": ["a"] },
+      { "id": "L10q2", "type": "singleChoice", "prompt": "一盒 5 块饼干，3 盒一共几块？", "ttsText": "一盒有五块饼干，三盒一共有多少块？", "emoji": "🍪",
+        "options": [ {"id":"a","label":"8"}, {"id":"b","label":"15"}, {"id":"c","label":"35"} ], "correctIds": ["b"] },
+      { "id": "L10q3", "type": "numberInput", "prompt": "停车场有 18 辆车，开走 9 辆，又来了 6 辆，现在几辆？", "ttsText": "停车场有十八辆车，开走了九辆，又来了六辆，现在一共有几辆车？", "emoji": "🚗",
+        "options": [], "correctIds": ["15"] }
+    ]
+  },
+  {
+    "id": "L11", "index": 11, "theme": "math", "title": "找规律", "emoji": "🔁", "isBoss": false, "skillId": "s11",
+    "questions": [
+      { "id": "L11q1", "type": "singleChoice", "prompt": "2 4 6 8 ? 下一个？", "ttsText": "二、四、六、八，下一个数字是几？", "emoji": "2️⃣4️⃣6️⃣8️⃣ ➡️ ❓",
+        "options": [ {"id":"a","label":"9"}, {"id":"b","label":"10"}, {"id":"c","label":"12"} ], "correctIds": ["b"] },
+      { "id": "L11q2", "type": "singleChoice", "prompt": "5 10 15 20 ? 下一个？", "ttsText": "五、十、十五、二十，下一个是几？", "emoji": "",
+        "options": [ {"id":"a","label":"25"}, {"id":"b","label":"22"}, {"id":"c","label":"30"} ], "correctIds": ["a"] },
+      { "id": "L11q3", "type": "singleChoice", "prompt": "1 3 6 10 ? 下一个？", "ttsText": "一、三、六、十，每次多加一点点，下一个是几？", "emoji": "",
+        "options": [ {"id":"a","label":"13"}, {"id":"b","label":"15"}, {"id":"c","label":"14"} ], "correctIds": ["b"] }
+    ]
+  },
+  {
+    "id": "L12", "index": 12, "theme": "math", "title": "数学大闯关", "emoji": "🎓", "isBoss": true, "skillId": "s12",
+    "questions": [
+      { "id": "L12q1", "type": "singleChoice", "prompt": "46 + 38 = ?", "ttsText": "四十六 加 三十八 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"74"}, {"id":"b","label":"84"}, {"id":"c","label":"86"} ], "correctIds": ["b"] },
+      { "id": "L12q2", "type": "singleChoice", "prompt": "7 × 8 = ?", "ttsText": "七 乘 八 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"54"}, {"id":"b","label":"56"}, {"id":"c","label":"63"} ], "correctIds": ["b"] },
+      { "id": "L12q3", "type": "singleChoice", "prompt": "20 ÷ 4 = ?", "ttsText": "二十 除以 四 等于几？", "emoji": "",
+        "options": [ {"id":"a","label":"4"}, {"id":"b","label":"5"}, {"id":"c","label":"6"} ], "correctIds": ["b"] },
+      { "id": "L12q4", "type": "numberInput", "prompt": "皓皓 8 岁，妈妈 35 岁，妈妈比皓皓大几岁？", "ttsText": "皓皓八岁，妈妈三十五岁，妈妈比皓皓大几岁？", "emoji": "",
+        "options": [], "correctIds": ["27"] }
+    ]
+  },
+  {
+    "id": "L13", "index": 13, "theme": "space", "title": "太阳系大家庭", "emoji": "🪐", "isBoss": false, "skillId": "s13",
+    "questions": [
+      { "id": "L13q1", "type": "singleChoice", "prompt": "太阳系里有几颗大行星？", "ttsText": "太阳系里一共有几颗大行星呀？", "scienceIntro": "水星、金星、地球、火星、木星、土星、天王星、海王星，一起数数看。",
+        "emoji": "", "options": [ {"id":"a","label":"6"}, {"id":"b","label":"8"}, {"id":"c","label":"9"} ], "correctIds": ["b"] },
+      { "id": "L13q2", "type": "singleChoice", "prompt": "我们住在哪颗行星上？", "ttsText": "我们人类，住在哪一颗行星上呢？", "emoji": "",
+        "options": [ {"id":"a","emoji":"🌍","label":"地球"}, {"id":"b","emoji":"🪐","label":"土星"}, {"id":"c","emoji":"🔴","label":"火星"} ], "correctIds": ["a"] },
+      { "id": "L13q3", "type": "singleChoice", "prompt": "所有行星都绕着谁转？", "ttsText": "太阳系里所有的行星，都绕着谁转圈圈？", "scienceIntro": "太阳在正中间，所有行星都围着太阳一圈圈地转。",
+        "emoji": "☀️", "options": [ {"id":"a","label":"太阳"}, {"id":"b","label":"月亮"}, {"id":"c","label":"地球"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L14", "index": 14, "theme": "space", "title": "太阳是颗恒星", "emoji": "☀️", "isBoss": false, "skillId": "s14",
+    "questions": [
+      { "id": "L14q1", "type": "singleChoice", "prompt": "太阳是恒星还是行星？", "ttsText": "太阳会自己发光发热，它是恒星，还是行星呢？", "scienceIntro": "会自己发光发热的星星叫恒星，太阳就是离我们最近的一颗恒星。",
+        "emoji": "☀️", "options": [ {"id":"a","label":"恒星"}, {"id":"b","label":"行星"} ], "correctIds": ["a"] },
+      { "id": "L14q2", "type": "singleChoice", "prompt": "行星自己会发光吗？", "ttsText": "像地球这样的行星，自己会发光吗？", "scienceIntro": "行星自己不会发光，我们看到行星亮，是因为它反射了太阳的光。",
+        "emoji": "🌍", "options": [ {"id":"a","label":"不会，靠反射阳光"}, {"id":"b","label":"会自己发光"} ], "correctIds": ["a"] },
+      { "id": "L14q3", "type": "singleChoice", "prompt": "太阳给地球带来了什么？", "ttsText": "太阳给地球带来了什么？", "emoji": "",
+        "options": [ {"id":"a","emoji":"☀️","label":"光和温暖"}, {"id":"b","emoji":"❄️","label":"寒冷"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L15", "index": 15, "theme": "space", "title": "月亮的秘密", "emoji": "🌙", "isBoss": false, "skillId": "s15",
+    "questions": [
+      { "id": "L15q1", "type": "singleChoice", "prompt": "月亮是地球的什么？", "ttsText": "月亮绕着地球转，它是地球的什么？", "scienceIntro": "绕着行星转的星球叫卫星，月亮就是地球唯一的卫星。",
+        "emoji": "🌕", "options": [ {"id":"a","label":"卫星"}, {"id":"b","label":"恒星"}, {"id":"c","label":"行星"} ], "correctIds": ["a"] },
+      { "id": "L15q2", "type": "singleChoice", "prompt": "月亮为什么有圆有缺？", "ttsText": "月亮为什么有时候圆，有时候弯弯的？", "scienceIntro": "月亮自己不发光，太阳照到它的不同部分，我们就看到了不同的形状。",
+        "emoji": "🌗", "options": [ {"id":"a","label":"被太阳照亮的部分不同"}, {"id":"b","label":"月亮缺了一块"} ], "correctIds": ["a"] },
+      { "id": "L15q3", "type": "singleChoice", "prompt": "谁绕着谁转？", "ttsText": "是月亮绕着地球转，还是地球绕着月亮转呢？", "emoji": "🌍🌙",
+        "options": [ {"id":"a","label":"月亮绕地球"}, {"id":"b","label":"地球绕月亮"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L16", "index": 16, "theme": "space", "title": "行星排排队", "emoji": "📏", "isBoss": false, "skillId": "s16",
+    "questions": [
+      { "id": "L16q1", "type": "ordering", "prompt": "从离太阳最近的开始，按顺序点", "ttsText": "请从离太阳最近的星球开始，按顺序点一点。", "scienceIntro": "离太阳最近的是水星，然后是金星，再到我们的地球。",
+        "emoji": "☀️➡️", "options": [ {"id":"a","emoji":"🌍","label":"地球"}, {"id":"b","emoji":"🟡","label":"水星"}, {"id":"c","emoji":"🟠","label":"金星"} ], "correctIds": ["b","c","a"] },
+      { "id": "L16q2", "type": "singleChoice", "prompt": "离太阳最近的行星是？", "ttsText": "离太阳最近的行星，叫什么名字？", "emoji": "",
+        "options": [ {"id":"a","label":"水星"}, {"id":"b","label":"地球"}, {"id":"c","label":"木星"} ], "correctIds": ["a"] },
+      { "id": "L16q3", "type": "singleChoice", "prompt": "地球是离太阳第几近的行星？", "ttsText": "数一数，地球是离太阳第几近的行星？", "scienceIntro": "水星第一、金星第二、地球第三。",
+        "emoji": "", "options": [ {"id":"a","label":"第三"}, {"id":"b","label":"第一"}, {"id":"c","label":"第五"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L17", "index": 17, "theme": "space", "title": "最大的行星", "emoji": "🟠", "isBoss": false, "skillId": "s17",
+    "questions": [
+      { "id": "L17q1", "type": "singleChoice", "prompt": "太阳系最大的行星是？", "ttsText": "太阳系里最大的行星，叫什么名字？", "scienceIntro": "木星是个大胖子，是八大行星里最大的一颗，能装下一千多个地球！",
+        "emoji": "🟠", "options": [ {"id":"a","label":"木星"}, {"id":"b","label":"地球"}, {"id":"c","label":"火星"} ], "correctIds": ["a"] },
+      { "id": "L17q2", "type": "singleChoice", "prompt": "太阳系最小的行星是？", "ttsText": "太阳系里最小的行星，是哪一颗？", "scienceIntro": "水星最小，离太阳也最近。",
+        "emoji": "", "options": [ {"id":"a","label":"水星"}, {"id":"b","label":"木星"} ], "correctIds": ["a"] },
+      { "id": "L17q3", "type": "singleChoice", "prompt": "木星比地球大很多吗？", "ttsText": "木星比我们的地球，大很多还是差不多？", "emoji": "🟠 vs 🌍",
+        "options": [ {"id":"a","label":"大很多"}, {"id":"b","label":"差不多"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L18", "index": 18, "theme": "space", "title": "有光环的星球", "emoji": "💍", "isBoss": false, "skillId": "s18",
+    "questions": [
+      { "id": "L18q1", "type": "singleChoice", "prompt": "哪颗星球有漂亮的光环？", "ttsText": "哪一颗星球，戴着一个漂亮的大光环？", "scienceIntro": "土星的腰上有一圈美丽的光环，是由许多小冰块和小石头组成的。",
+        "emoji": "🪐", "options": [ {"id":"a","emoji":"🪐","label":"土星"}, {"id":"b","emoji":"🌍","label":"地球"}, {"id":"c","emoji":"🔴","label":"火星"} ], "correctIds": ["a"] },
+      { "id": "L18q2", "type": "singleChoice", "prompt": "土星的光环是什么做的？", "ttsText": "土星的光环，是由什么组成的呀？", "emoji": "",
+        "options": [ {"id":"a","label":"小冰块和石头"}, {"id":"b","label":"棉花糖"} ], "correctIds": ["a"] },
+      { "id": "L18q3", "type": "singleChoice", "prompt": "土星是太阳系第几大的行星？", "ttsText": "土星是太阳系里第几大的行星？仅次于木星哦。", "scienceIntro": "木星最大，土星第二大。",
+        "emoji": "", "options": [ {"id":"a","label":"第二大"}, {"id":"b","label":"最小"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L19", "index": 19, "theme": "space", "title": "去当宇航员", "emoji": "👨‍🚀", "isBoss": false, "skillId": "s19",
+    "questions": [
+      { "id": "L19q1", "type": "singleChoice", "prompt": "去太空要坐什么？", "ttsText": "想要飞到太空去，要坐什么交通工具呀？", "scienceIntro": "火箭的力气特别大，能挣脱地球的吸引力，把飞船送到太空里。",
+        "emoji": "", "options": [ {"id":"a","emoji":"🚀","label":"火箭"}, {"id":"b","emoji":"✈️","label":"飞机"}, {"id":"c","emoji":"🚗","label":"汽车"} ], "correctIds": ["a"] },
+      { "id": "L19q2", "type": "singleChoice", "prompt": "宇航员为什么要穿宇航服？", "ttsText": "太空里为什么一定要穿宇航服？", "scienceIntro": "太空里没有空气、温度又非常极端，宇航服能提供氧气、保护身体。",
+        "emoji": "👨‍🚀", "options": [ {"id":"a","label":"太空没空气，要保护身体"}, {"id":"b","label":"为了好看"} ], "correctIds": ["a"] },
+      { "id": "L19q3", "type": "singleChoice", "prompt": "为什么宇航员在太空会飘？", "ttsText": "为什么宇航员在太空里会飘起来？", "scienceIntro": "在太空里几乎没有重力，所以东西和人都会飘浮起来。",
+        "emoji": "", "options": [ {"id":"a","label":"几乎没有重力"}, {"id":"b","label":"风太大了"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L20", "index": 20, "theme": "space", "title": "星星与星座", "emoji": "✨", "isBoss": false, "skillId": "s20",
+    "questions": [
+      { "id": "L20q1", "type": "singleChoice", "prompt": "北斗七星有几颗星？", "ttsText": "北斗七星，一共有几颗星星呀？", "scienceIntro": "北斗七星像一个大勺子，数一数，它有七颗星。",
+        "emoji": "✨✨✨✨✨✨✨", "options": [ {"id":"a","label":"5"}, {"id":"b","label":"7"}, {"id":"c","label":"9"} ], "correctIds": ["b"] },
+      { "id": "L20q2", "type": "singleChoice", "prompt": "把星星连起来组成的图案叫？", "ttsText": "把天上的星星连起来，组成的图案叫什么？", "scienceIntro": "古人把星星连成各种图案，起了名字，就是星座。",
+        "emoji": "", "options": [ {"id":"a","label":"星座"}, {"id":"b","label":"星云"} ], "correctIds": ["a"] },
+      { "id": "L20q3", "type": "singleChoice", "prompt": "北斗七星连起来像什么？", "ttsText": "北斗七星连起来，像什么东西呀？", "emoji": "",
+        "options": [ {"id":"a","emoji":"🥄","label":"大勺子"}, {"id":"b","emoji":"⚽","label":"皮球"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L21", "index": 21, "theme": "space", "title": "白天和黑夜", "emoji": "🌗", "isBoss": false, "skillId": "s21",
+    "questions": [
+      { "id": "L21q1", "type": "singleChoice", "prompt": "为什么会有白天和黑夜？", "ttsText": "为什么会有白天和黑夜呢？", "scienceIntro": "地球自己会转圈圈，叫做自转，转到太阳这边就是白天，背面就是黑夜。",
+        "emoji": "🌍🔄", "options": [ {"id":"a","label":"地球自转"}, {"id":"b","label":"太阳关灯了"} ], "correctIds": ["a"] },
+      { "id": "L21q2", "type": "singleChoice", "prompt": "地球自转一圈大约要多久？", "ttsText": "地球自己转一圈，大约要多长时间？", "scienceIntro": "地球自转一圈大约是一天，也就是二十四小时。",
+        "emoji": "🕐", "options": [ {"id":"a","label":"一天"}, {"id":"b","label":"一年"}, {"id":"c","label":"一个月"} ], "correctIds": ["a"] },
+      { "id": "L21q3", "type": "singleChoice", "prompt": "地球绕太阳转一圈是多久？", "ttsText": "地球绕着太阳转一大圈，是多长时间？", "scienceIntro": "地球绕太阳转一圈是一年。",
+        "emoji": "", "options": [ {"id":"a","label":"一年"}, {"id":"b","label":"一天"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L22", "index": 22, "theme": "space", "title": "一年四季", "emoji": "🍂", "isBoss": false, "skillId": "s22",
+    "questions": [
+      { "id": "L22q1", "type": "ordering", "prompt": "把四季按顺序点：春夏秋冬", "ttsText": "把四个季节，按春、夏、秋、冬的顺序点一遍。", "scienceIntro": "一年有春、夏、秋、冬四个季节，循环往复。",
+        "emoji": "", "options": [ {"id":"a","emoji":"🍂","label":"秋"}, {"id":"b","emoji":"🌸","label":"春"}, {"id":"c","emoji":"❄️","label":"冬"}, {"id":"d","emoji":"☀️","label":"夏"} ], "correctIds": ["b","d","a","c"] },
+      { "id": "L22q2", "type": "singleChoice", "prompt": "为什么会有四季？", "ttsText": "为什么一年会有四个季节呢？", "scienceIntro": "因为地球是斜着身子绕太阳转的，不同时候接收到的阳光不一样。",
+        "emoji": "", "options": [ {"id":"a","label":"地球斜着绕太阳转"}, {"id":"b","label":"太阳忽冷忽热"} ], "correctIds": ["a"] },
+      { "id": "L22q3", "type": "singleChoice", "prompt": "一年有几个季节？", "ttsText": "一年一共有几个季节？", "emoji": "",
+        "options": [ {"id":"a","label":"4"}, {"id":"b","label":"2"}, {"id":"c","label":"12"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L23", "index": 23, "theme": "space", "title": "太空小趣闻", "emoji": "🛰️", "isBoss": false, "skillId": "s23",
+    "questions": [
+      { "id": "L23q1", "type": "singleChoice", "prompt": "绕着地球转的人造小卫星叫？", "ttsText": "人们造出来、绕着地球转的小东西，叫什么？", "scienceIntro": "人造卫星能帮我们看天气、打电话、看电视。",
+        "emoji": "🛰️", "options": [ {"id":"a","label":"人造卫星"}, {"id":"b","label":"风筝"} ], "correctIds": ["a"] },
+      { "id": "L23q2", "type": "singleChoice", "prompt": "在太空喝水会怎样？", "ttsText": "在太空里没有重力，水会变成什么样子？", "scienceIntro": "在太空里水不会往下流，会变成一颗颗圆圆的小水球飘在空中。",
+        "emoji": "💧", "options": [ {"id":"a","label":"变成飘着的小水球"}, {"id":"b","label":"流到地上"} ], "correctIds": ["a"] },
+      { "id": "L23q3", "type": "singleChoice", "prompt": "离我们最近的恒星是哪颗？", "ttsText": "离我们地球最近的恒星，是哪一颗？", "scienceIntro": "太阳就是离我们最近的恒星，其它恒星都非常非常远。",
+        "emoji": "☀️", "options": [ {"id":"a","label":"太阳"}, {"id":"b","label":"北极星"} ], "correctIds": ["a"] }
+    ]
+  },
+  {
+    "id": "L24", "index": 24, "theme": "space", "title": "宇宙大闯关", "emoji": "🏆", "isBoss": true, "skillId": "s24",
+    "questions": [
+      { "id": "L24q1", "type": "singleChoice", "prompt": "太阳系有几颗大行星？", "ttsText": "太阳系一共有几颗大行星？", "emoji": "",
+        "options": [ {"id":"a","label":"8"}, {"id":"b","label":"6"}, {"id":"c","label":"9"} ], "correctIds": ["a"] },
+      { "id": "L24q2", "type": "singleChoice", "prompt": "会自己发光的太阳是？", "ttsText": "会自己发光发热的太阳，是恒星还是行星？", "emoji": "☀️",
+        "options": [ {"id":"a","label":"恒星"}, {"id":"b","label":"行星"} ], "correctIds": ["a"] },
+      { "id": "L24q3", "type": "singleChoice", "prompt": "最大和有光环的行星分别是？", "ttsText": "太阳系里最大的行星是木星，那有漂亮光环的是哪颗？", "emoji": "🪐",
+        "options": [ {"id":"a","label":"土星"}, {"id":"b","label":"水星"} ], "correctIds": ["a"] },
+      { "id": "L24q4", "type": "singleChoice", "prompt": "白天黑夜是因为地球在？", "ttsText": "白天和黑夜，是因为地球在做什么？", "emoji": "🌍",
+        "options": [ {"id":"a","label":"自转"}, {"id":"b","label":"停着不动"} ], "correctIds": ["a"] }
+    ]
+  }
+]

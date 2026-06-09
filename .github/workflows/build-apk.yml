@@ -1,0 +1,82 @@
+name: Build APK
+
+# 触发：手动点击 或 推送到 main 分支
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build-apk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: 安装 Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: 生成 Android 平台目录
+        run: flutter create --platforms=android .
+
+      - name: 合并相册读取权限到 AndroidManifest
+        run: |
+          MANIFEST=android/app/src/main/AndroidManifest.xml
+          # 在 <application 之前插入权限声明（若尚未存在）
+          if ! grep -q "READ_MEDIA_IMAGES" "$MANIFEST"; then
+            python3 - "$MANIFEST" <<'PY'
+          import sys, re
+          path = sys.argv[1]
+          src = open(path, encoding='utf-8').read()
+          perms = (
+              '    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />\n'
+              '    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" '
+              'android:maxSdkVersion="32" />\n'
+          )
+          src = re.sub(r'(\s*)(<application)', r'\n' + perms + r'\1\2', src, count=1)
+          open(path, 'w', encoding='utf-8').write(src)
+          print("权限已合并")
+          PY
+          fi
+          cat "$MANIFEST"
+
+      - name: 设置应用中文名
+        run: |
+          MANIFEST=android/app/src/main/AndroidManifest.xml
+          sed -i 's/android:label="[^"]*"/android:label="皓皓闯关"/' "$MANIFEST"
+
+      - name: 获取依赖
+        run: flutter pub get
+
+      - name: 运行测试
+        run: flutter test
+        continue-on-error: true
+
+      - name: 构建 Release APK
+        run: flutter build apk --release
+
+      - name: 上传 APK 产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: yuhao-game-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+
+      - name: 发布到 Release（带版本标签）
+        if: github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: 皓皓闯关 APK (构建 #${{ github.run_number }})
+          files: build/app/outputs/flutter-apk/app-release.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

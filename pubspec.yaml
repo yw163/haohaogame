@@ -1,0 +1,42 @@
+name: yuhao_game
+description: "皓皓闯关 — 杨禹皓的数学与宇宙探险闯关游戏"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: 1.0.8
+
+  # 状态管理
+  flutter_riverpod: 2.5.1
+
+  # 路由
+  go_router: 14.2.7
+
+  # 本地持久化
+  shared_preferences: 2.3.2
+  path_provider: 2.1.4
+
+  # 照片（家长后台上传）
+  image_picker: 1.1.2
+  flutter_image_compress: 2.3.0
+
+  # 语音读题（孩子识字不全，靠系统TTS朗读）
+  flutter_tts: 4.0.2
+
+  # 动画与庆祝
+  confetti: 0.8.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: 4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/levels.json

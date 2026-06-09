@@ -1,0 +1,12 @@
+<!--
+  把以下权限合并进 android/app/src/main/AndroidManifest.xml 的 <manifest> 标签内
+  （<application> 之前）。用于 image_picker 从相册选图。
+
+  说明：Android 13+ (API 33) 使用 READ_MEDIA_IMAGES；更低版本用 READ_EXTERNAL_STORAGE。
+  image_picker 在多数设备上走系统 Photo Picker，可不申请也能选图；
+  保留声明以兼容老系统和某些 HarmonyOS 机型。
+-->
+<uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+<uses-permission
+    android:name="android.permission.READ_EXTERNAL_STORAGE"
+    android:maxSdkVersion="32" />
