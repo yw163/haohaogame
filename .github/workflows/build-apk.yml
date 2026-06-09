@@ -6,6 +6,10 @@ on:
   push:
     branches: [main]
 
+# 允许工作流创建 Release（默认 token 只读，需显式授权写）
+permissions:
+  contents: write
+
 jobs:
   build-apk:
     runs-on: ubuntu-latest
