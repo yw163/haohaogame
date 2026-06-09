@@ -70,7 +70,23 @@ jobs:
         continue-on-error: true
 
       - name: 构建 Release APK
-        run: flutter build apk --release
+        id: buildapk
+        run: |
+          set -o pipefail
+          flutter build apk --release 2>&1 | tee /tmp/build.log
+
+      - name: 失败时推送构建日志到 buildlog 分支
+        if: failure()
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          cp /tmp/build.log /tmp/keep.log
+          git checkout --orphan buildlog
+          git reset --hard
+          tail -120 /tmp/keep.log > build.log
+          git add build.log
+          git commit -m "build log #${{ github.run_number }}"
+          git push -f origin buildlog
 
       - name: 上传 APK 产物
         uses: actions/upload-artifact@v4
