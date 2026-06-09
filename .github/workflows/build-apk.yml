@@ -84,3 +84,19 @@ jobs:
           files: build/app/outputs/flutter-apk/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 把 APK 提交到独立分支 apk-dist，供 git 直接拉取（绕过被墙的 Release CDN）
+      - name: 推送 APK 到 apk-dist 分支
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cp build/app/outputs/flutter-apk/app-release.apk /tmp/haohao.apk
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git checkout --orphan apk-dist
+          git rm -rf --cached . >/dev/null 2>&1 || true
+          rm -rf ./* .github 2>/dev/null || true
+          cp /tmp/haohao.apk ./haohao.apk
+          echo "皓皓闯关 APK，构建 #${{ github.run_number }}" > README.md
+          git add haohao.apk README.md
+          git commit -m "APK 构建 #${{ github.run_number }}"
+          git push -f origin apk-dist
