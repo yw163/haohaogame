@@ -22,8 +22,8 @@ class LevelPlayPage extends ConsumerStatefulWidget {
 class _LevelPlayPageState extends ConsumerState<LevelPlayPage> {
   Level? _level;
   int _qIndex = 0;
-  int _wrongCount = 0; // 整关累计答错次数，用于评星
-  bool _answeredThisQuestion = false; // 本题是否已答对（防重复计分）
+  int _wrongCount = 0;
+  bool _answered = false;
   bool _introSpoken = false;
 
   @override
@@ -34,14 +34,13 @@ class _LevelPlayPageState extends ConsumerState<LevelPlayPage> {
 
   Future<void> _load() async {
     final levels = await ref.read(levelsProvider.future);
-    final level = levels.firstWhere((l) => l.id == widget.levelId);
-    setState(() => _level = level);
-    _speakCurrent();
+    setState(() => _level = levels.firstWhere((l) => l.id == widget.levelId));
+    _speak();
   }
 
   Question get _q => _level!.questions[_qIndex];
 
-  void _speakCurrent() {
+  void _speak() {
     final tts = ref.read(ttsProvider);
     final q = _q;
     if (q.scienceIntro != null && !_introSpoken) {
@@ -53,11 +52,11 @@ class _LevelPlayPageState extends ConsumerState<LevelPlayPage> {
   }
 
   void _onCorrect() {
-    if (_answeredThisQuestion) return;
-    _answeredThisQuestion = true;
+    if (_answered) return;
+    _answered = true;
     HapticFeedback.mediumImpact();
     ref.read(ttsProvider).speak('答对啦！');
-    Future.delayed(const Duration(milliseconds: 700), _next);
+    Future.delayed(const Duration(milliseconds: 650), _next);
   }
 
   void _onWrong() {
@@ -70,32 +69,24 @@ class _LevelPlayPageState extends ConsumerState<LevelPlayPage> {
     if (_qIndex + 1 < _level!.questions.length) {
       setState(() {
         _qIndex++;
-        _answeredThisQuestion = false;
+        _answered = false;
         _introSpoken = false;
       });
-      _speakCurrent();
+      _speak();
     } else {
-      _finishLevel();
+      _finish();
     }
   }
 
-  Future<void> _finishLevel() async {
-    // 评星：0错=3星，1-2错=2星，更多=1星
+  Future<void> _finish() async {
     final stars = _wrongCount == 0 ? 3 : (_wrongCount <= 2 ? 2 : 1);
-    await ref.read(progressProvider.notifier).completeLevel(
-          levelId: _level!.id,
-          skillId: _level!.skillId,
-          stars: stars,
-        );
+    await ref
+        .read(progressProvider.notifier)
+        .completeLevel(levelId: _level!.id, stars: stars);
     if (!mounted) return;
-    // 跳到技能解锁庆祝页
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (_) => SkillUnlockPage(
-          skillId: _level!.skillId,
-          stars: stars,
-          theme: _level!.theme,
-        ),
+        builder: (_) => SkillUnlockPage(level: _level!, stars: stars),
       ),
     );
   }
@@ -105,12 +96,12 @@ class _LevelPlayPageState extends ConsumerState<LevelPlayPage> {
     if (_level == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
-    final color = AppColors.primaryFor(_level!.theme);
+    final color = AppColors.primaryFor(_level!.subject);
     final q = _q;
     final total = _level!.questions.length;
 
     return Scaffold(
-      backgroundColor: AppColors.lightFor(_level!.theme).withOpacity(0.4),
+      backgroundColor: AppColors.lightFor(_level!.subject).withOpacity(0.4),
       body: SafeArea(
         child: Column(
           children: [
@@ -119,24 +110,19 @@ class _LevelPlayPageState extends ConsumerState<LevelPlayPage> {
               title: _level!.title,
               current: _qIndex + 1,
               total: total,
-              onExit: () => context.go('/map'),
+              onExit: () => context.go('/map/${_level!.subject.id}'),
             ),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: Row(
                   children: [
-                    // 左：题干 + 朗读
                     Expanded(
                       flex: 5,
                       child: _QuestionPanel(
-                        question: q,
-                        color: color,
-                        onReplay: _speakCurrent,
-                      ),
+                          question: q, color: color, onReplay: _speak),
                     ),
                     const SizedBox(width: 20),
-                    // 右：答题区
                     Expanded(
                       flex: 6,
                       child: _AnswerArea(
@@ -179,17 +165,11 @@ class _TopBar extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
-            icon: const Icon(Icons.close_rounded, size: 30),
-            onPressed: onExit,
-          ),
-          Text(
-            title,
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w800,
-              color: color,
-            ),
-          ),
+              icon: const Icon(Icons.close_rounded, size: 30),
+              onPressed: onExit),
+          Text(title,
+              style: TextStyle(
+                  fontSize: 22, fontWeight: FontWeight.w800, color: color)),
           const Spacer(),
           Expanded(
             flex: 2,
@@ -205,7 +185,8 @@ class _TopBar extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           Text('$current / $total',
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              style:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         ],
       ),
     );
@@ -216,11 +197,8 @@ class _QuestionPanel extends StatelessWidget {
   final Question question;
   final Color color;
   final VoidCallback onReplay;
-  const _QuestionPanel({
-    required this.question,
-    required this.color,
-    required this.onReplay,
-  });
+  const _QuestionPanel(
+      {required this.question, required this.color, required this.onReplay});
 
   @override
   Widget build(BuildContext context) {
@@ -231,10 +209,9 @@ class _QuestionPanel extends StatelessWidget {
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 12,
-            offset: const Offset(0, 4),
-          ),
+              color: Colors.black.withOpacity(0.06),
+              blurRadius: 12,
+              offset: const Offset(0, 4)),
         ],
       ),
       child: Column(
@@ -248,26 +225,20 @@ class _QuestionPanel extends StatelessWidget {
                 color: color.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Text(
-                '💡 ${question.scienceIntro!}',
-                style: const TextStyle(fontSize: 16, height: 1.4),
-              ),
+              child: Text('💡 ${question.scienceIntro!}',
+                  style: const TextStyle(fontSize: 16, height: 1.4)),
             ),
           if (question.emoji.isNotEmpty) ...[
             FittedBox(
-              child: Text(question.emoji,
-                  style: const TextStyle(fontSize: 56)),
-            ),
+                child:
+                    Text(question.emoji, style: const TextStyle(fontSize: 52))),
             const SizedBox(height: 12),
           ],
           Text(
             question.prompt,
             textAlign: TextAlign.center,
             style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              height: 1.3,
-            ),
+                fontSize: 28, fontWeight: FontWeight.bold, height: 1.3),
           ),
           const SizedBox(height: 16),
           GestureDetector(

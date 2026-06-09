@@ -5,8 +5,7 @@ import '../data/models/game_progress.dart';
 /// 进度 + 设置的本地持久化（SharedPreferences）。
 /// 照片本身不存这里，只存「技能 id -> 照片文件路径」的映射。
 class StorageService {
-  static const _kProgress = 'progress_v1';
-  static const _kPhotos = 'skill_photos_v1';
+  static const _kProgress = 'progress_v2';
   static const _kPin = 'parent_pin_v1';
   static const _kSound = 'sound_on_v1';
   static const _kFirstRun = 'first_run_done_v1';
@@ -36,22 +35,6 @@ class StorageService {
 
   Future<void> resetProgress() async {
     await _prefs.remove(_kProgress);
-  }
-
-  // —— 技能照片映射 ——
-  Map<String, String> loadPhotoMap() {
-    final raw = _prefs.getString(_kPhotos);
-    if (raw == null) return {};
-    try {
-      final m = json.decode(raw) as Map<String, dynamic>;
-      return m.map((k, v) => MapEntry(k, v.toString()));
-    } catch (_) {
-      return {};
-    }
-  }
-
-  Future<void> savePhotoMap(Map<String, String> map) async {
-    await _prefs.setString(_kPhotos, json.encode(map));
   }
 
   // —— 家长 PIN（明文存本地，仅为防孩子误入；非安全场景）——

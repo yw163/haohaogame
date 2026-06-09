@@ -19,5 +19,6 @@ pubspec.lock
 .vscode/
 *.iml
 
-# 本地照片/进度（运行时生成，不入库）
-photos/
+# 本地运行时生成的家长上传照片目录（app 私有目录，不入库）
+# 注意：assets/photos/ 是打包资源，必须入库，不要忽略
+/photos/

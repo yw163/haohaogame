@@ -21,10 +21,6 @@ dependencies:
   shared_preferences: 2.3.2
   path_provider: 2.1.4
 
-  # 照片（家长后台上传）
-  image_picker: 1.1.2
-  flutter_image_compress: 2.3.0
-
   # 语音读题（孩子识字不全，靠系统TTS朗读）
   flutter_tts: 4.0.2
 
@@ -35,8 +31,20 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: 4.0.0
+  flutter_launcher_icons: 0.13.1
+
+# App 图标：用皓皓照片
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon/app_icon.png"
+  adaptive_icon_background: "#FFF3E0"
+  adaptive_icon_foreground: "assets/icon/app_icon.png"
 
 flutter:
   uses-material-design: true
   assets:
     - assets/data/levels.json
+    - assets/photos/
+    - assets/icon/
+

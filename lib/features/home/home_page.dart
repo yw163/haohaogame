@@ -25,12 +25,11 @@ class HomePage extends ConsumerWidget {
         child: SafeArea(
           child: Stack(
             children: [
-              // 装饰星球
-              const Positioned(top: 20, right: 40, child: Text('🪐', style: TextStyle(fontSize: 60))),
-              const Positioned(bottom: 30, left: 30, child: Text('🚀', style: TextStyle(fontSize: 54))),
-              const Positioned(top: 90, left: 60, child: Text('⭐', style: TextStyle(fontSize: 34))),
+              const Positioned(top: 20, right: 40, child: Text('🪐', style: TextStyle(fontSize: 56))),
+              const Positioned(bottom: 30, left: 30, child: Text('🚀', style: TextStyle(fontSize: 50))),
+              const Positioned(top: 90, left: 60, child: Text('⭐', style: TextStyle(fontSize: 30))),
+              const Positioned(bottom: 60, right: 80, child: Text('📜', style: TextStyle(fontSize: 40))),
 
-              // 家长入口（右上角小齿轮）
               Positioned(
                 top: 8,
                 right: 8,
@@ -45,41 +44,40 @@ class HomePage extends ConsumerWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Text('🌟', style: TextStyle(fontSize: 72)),
-                    const SizedBox(height: 8),
+                    const Text('🌟', style: TextStyle(fontSize: 64)),
+                    const SizedBox(height: 6),
                     const Text(
                       '皓皓闯关',
                       style: TextStyle(
-                        fontSize: 56,
-                        fontWeight: FontWeight.w900,
-                        color: AppColors.ink,
+                          fontSize: 54,
+                          fontWeight: FontWeight.w900,
+                          color: AppColors.ink),
+                    ),
+                    const Text(
+                      '数学 · 宇宙 · 物理 · 趣味 · 古诗词',
+                      style: TextStyle(fontSize: 18, color: Colors.black54),
+                    ),
+                    const SizedBox(height: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 18, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.7),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        '已通关 ${progress.clearedCount} / 100    ⭐ x ${progress.totalStars}',
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      '数学 · 宇宙 大冒险',
-                      style: TextStyle(fontSize: 22, color: Colors.black54),
-                    ),
-                    const SizedBox(height: 8),
-                    _ProgressChip(
-                      cleared: progress.clearedCount,
-                      stars: progress.totalStars,
-                    ),
-                    const SizedBox(height: 28),
+                    const SizedBox(height: 24),
                     BigButton(
                       label: '开始闯关',
                       emoji: '🎮',
-                      color: AppColors.mathPrimary,
+                      color: const Color(0xFFFF8A3D),
                       fontSize: 30,
-                      onTap: () => context.push('/map'),
-                    ),
-                    const SizedBox(height: 16),
-                    BigButton(
-                      label: '我的技能墙',
-                      emoji: '🏅',
-                      color: AppColors.spacePrimary,
-                      fontSize: 26,
-                      onTap: () => context.push('/skills'),
+                      onTap: () => context.push('/subjects'),
                     ),
                   ],
                 ),
@@ -87,27 +85,6 @@ class HomePage extends ConsumerWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class _ProgressChip extends StatelessWidget {
-  final int cleared;
-  final int stars;
-  const _ProgressChip({required this.cleared, required this.stars});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.7),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        '已通关 $cleared / 24    ⭐ x $stars',
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
     );
   }

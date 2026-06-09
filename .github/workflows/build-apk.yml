@@ -61,6 +61,10 @@ jobs:
       - name: 获取依赖
         run: flutter pub get
 
+      - name: 生成 App 图标（皓皓照片）
+        run: dart run flutter_launcher_icons
+        continue-on-error: true
+
       - name: 运行测试
         run: flutter test
         continue-on-error: true
